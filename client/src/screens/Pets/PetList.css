@@ -1,0 +1,42 @@
+/* Basic styling for the main container */
+.pet-list-container {
+    margin-top: 1rem;
+  }
+  
+  .pet-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .pet-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Media styling */
+  .pet-card-media {
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  /* Text content styling */
+  .pet-card-content {
+    flex-grow: 1;
+  }
+  
+  .pet-card-title {
+    font-weight: bold;
+  }
+  
+  .pet-card-details {
+    color: #757575;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pet-card-button {
+    margin-top: 1rem;
+  }
+  

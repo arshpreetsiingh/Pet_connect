@@ -1,6 +1,9 @@
+// SellerDashboard.js
 import React, { useState } from 'react';
-import { Container, TextField, Button, Typography, Box, Alert } from '@mui/material';
+import { Container, TextField, Button, Typography, Box, Alert, Snackbar } from '@mui/material';
+import { Email } from '@mui/icons-material';
 import axios from '../../api/axios';
+import './SellerDashboard.css';
 
 const SellerDashboard = () => {
   const [petDetails, setPetDetails] = useState({
@@ -10,9 +13,11 @@ const SellerDashboard = () => {
     age: '',
     price: '',
     description: '',
-    image:''
+    image: '',
+    email: ''
   });
   const [error, setError] = useState('');
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleChange = (e) => {
     setPetDetails({
@@ -23,118 +28,138 @@ const SellerDashboard = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!petDetails.name || !petDetails.species || !petDetails.price || !petDetails.email) {
+      setError('Please fill in all required fields.');
+      return;
+    }
+
     try {
-      const res = await axios.post('/api/pets/create', petDetails, {
+      await axios.post('/api/pets/create', petDetails, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
-      console.log('Pet added successfully:', res.data);
+      setSnackbarOpen(true);
+      setPetDetails({
+        name: '',
+        species: '',
+        breed: '',
+        age: '',
+        price: '',
+        description: '',
+        image: '',
+        email: ''
+      });
     } catch (err) {
-      console.error(err);
       setError('Failed to list pet. Please try again.');
     }
   };
 
   return (
-    <Container component="main" maxWidth="md">
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography component="h1" variant="h5">
+    <Container component="main" maxWidth="sm" className="dashboard-container">
+      <Box className="dashboard-box">
+        <Typography component="h1" variant="h4" className="dashboard-title">
           List Your Pet for Sale
         </Typography>
-        {error && <Alert severity="error" sx={{ mt: 2, width: '100%' }}>{error}</Alert>}
-        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+        {error && <Alert severity="error" className="dashboard-alert">{error}</Alert>}
+        <Box component="form" onSubmit={handleSubmit} className="dashboard-form">
           <TextField
-            margin="normal"
             required
             fullWidth
-            id="name"
             label="Pet Name"
             name="name"
             value={petDetails.name}
             onChange={handleChange}
+            className="form-field"
           />
           <TextField
-            margin="normal"
             required
             fullWidth
-            id="species"
             label="Species"
             name="species"
             value={petDetails.species}
             onChange={handleChange}
+            className="form-field"
           />
           <TextField
-            margin="normal"
             fullWidth
-            id="breed"
             label="Breed"
             name="breed"
             value={petDetails.breed}
             onChange={handleChange}
+            className="form-field"
           />
           <TextField
-            margin="normal"
             fullWidth
-            id="age"
-            label="Age"
+            label="Age (in years)"
             name="age"
+            type="number"
             value={petDetails.age}
             onChange={handleChange}
+            className="form-field"
           />
           <TextField
-            margin="normal"
             required
             fullWidth
-            id="price"
-            label="Price"
+            label="Price ($)"
             name="price"
+            type="number"
             value={petDetails.price}
             onChange={handleChange}
+            className="form-field"
           />
           <TextField
-            margin="normal"
+            required
             fullWidth
-            id="description"
+            label="Contact Email"
+            name="email"
+            type="email"
+            value={petDetails.email}
+            onChange={handleChange}
+            InputProps={{
+              startAdornment: <Email sx={{ mr: 1 }} color="action" />
+            }}
+            className="form-field"
+          /><TextField
+          fullWidth
+          label="Image URL"
+          name="image"
+          value={petDetails.image}
+          onChange={handleChange}
+          className="form-field"
+        />
+          <TextField
+            fullWidth
             label="Description"
             name="description"
             value={petDetails.description}
             onChange={handleChange}
             multiline
             rows={4}
+            className="form-field"
           />
-          <TextField
-            margin="normal"
-            id="image"
-            label="Image URL"
-            name="image"
-            value={petDetails.image
-            }
-            onChange={handleChange}
-            multiline
-            rows={4}
-          />
+          
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            color="primary"
+            className="submit-button"
           >
             List Pet
           </Button>
         </Box>
       </Box>
-      </Container>
+
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setSnackbarOpen(false)}
+        message="Pet listed successfully!"
+        className="snackbar-success"
+      />
+    </Container>
   );
-}
+};
 
 export default SellerDashboard;
-    
-

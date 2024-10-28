@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Typography, Grid, Card, CardContent, CardMedia, Button, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import axios from '../../api/axios';
+import placeholder from '../../img/placeholder.png';
+import './PetList.css';
 
 const PetList = () => {
   const [pets, setPets] = useState([]);
@@ -26,7 +28,7 @@ const PetList = () => {
   );
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4 }}>
+    <Container maxWidth="lg" className="pet-list-container">
       <Typography variant="h4" component="h1" gutterBottom>
         Available Pets
       </Typography>
@@ -41,30 +43,36 @@ const PetList = () => {
       <Grid container spacing={4}>
         {filteredPets.map((pet) => (
           <Grid item key={pet._id} xs={12} sm={6} md={4}>
-            <Card>
+            <Card className="pet-card">
               <CardMedia
                 component="img"
-                height="140"
-                image={pet.image ? `http://localhost:5000/${pet.image}` : "/placeholder.svg?height=140&width=140"}
+                className="pet-card-media"
+                image={pet.image || placeholder}
                 alt={pet.name}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+              <CardContent className="pet-card-content">
+                <Typography variant="h5" component="div" className="pet-card-title">
                   {pet.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" className="pet-card-details">
                   Species: {pet.species}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" className="pet-card-details">
                   Breed: {pet.breed}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" className="pet-card-details">
                   Age: {pet.age} years
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" className="pet-card-details">
                   Price: ${pet.price}
                 </Typography>
-                <Button component={Link} to={`/pets/${pet._id}`} size="small" color="primary" sx={{ mt: 2 }}>
+                <Button
+                  component={Link}
+                  to={`/pets/${pet._id}`}
+                  size="small"
+                  color="primary"
+                  className="pet-card-button"
+                >
                   View Details
                 </Button>
               </CardContent>

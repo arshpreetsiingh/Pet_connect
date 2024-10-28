@@ -1,0 +1,39 @@
+/* Main container for pet details */
+.pet-details-container {
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  /* Card styling */
+  .pet-details-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  .pet-details-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card media (image) styling */
+  .pet-details-image {
+    object-fit: cover;
+  }
+  
+  /* Contact and Share button styling */
+  .pet-details-actions {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .contact-button {
+    background-color: #1976d2;
+    color: white;
+  }
+  
+  .icon-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  

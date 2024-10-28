@@ -7,7 +7,7 @@ const router = express.Router();
 router.post('/create', authMiddleware, async (req, res) => {
   const { name, breed, age, price, description,image } = req.body;
 
-  if (!name || !breed || !age || !price || !description || !image) {
+  if (!name || !breed || !age || !price || !description || !image || !email) {
     return res.status(400).json({ msg: 'Please fill in all fields' });
   }
 
@@ -19,6 +19,7 @@ router.post('/create', authMiddleware, async (req, res) => {
       price,
       description,
       image,
+      email,
       seller: req.user.id,  // Attaching seller ID from authenticated user
     });
 

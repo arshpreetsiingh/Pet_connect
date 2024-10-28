@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { Container, Typography, Card, CardContent, CardMedia, Button, Box, CircularProgress, Grid, IconButton } from '@mui/material';
 import { Email, Share, ContentCopy } from '@mui/icons-material';
 import axios from '../../api/axios';
+import placeholder from '../../img/placeholder.png'; // Ensure this file exists
+import './PetDetails.css';
 
 const PetDetails = () => {
   const [pet, setPet] = useState(null);
@@ -21,7 +23,7 @@ const PetDetails = () => {
   }, [id]);
 
   if (!pet) return (
-    <Container sx={{ mt: 4, textAlign: 'center' }}>
+    <Container className="pet-details-container">
       <CircularProgress size={60} />
       <Typography variant="h6" sx={{ mt: 2 }}>Loading pet details...</Typography>
     </Container>
@@ -34,13 +36,14 @@ const PetDetails = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 4 }}>
-      <Card>
+    <Container maxWidth="md" className="pet-details-container">
+      <Card className="pet-details-card">
         <CardMedia
           component="img"
           height="400"
-          image={pet.image || "/placeholder.svg?height=400&width=400"}
+          image={pet.image || placeholder}
           alt={pet.name}
+          className="pet-details-image"
         />
         <CardContent>
           <Typography gutterBottom variant="h3" component="div" align="center">
@@ -69,16 +72,16 @@ const PetDetails = () => {
             </Grid>
           </Grid>
 
-          <Box sx={{ mt: 4, display: 'flex', justifyContent: 'space-between' }}>
-            <Button 
-              variant="contained" 
-              startIcon={<Email />} 
-              href={`mailto:seller@example.com?subject=Inquiry about ${pet.name}`} 
-              color="primary">
+          <Box className="pet-details-actions">
+            <Button
+              variant="contained"
+              startIcon={<Email />}
+              href={`mailto:${pet.email}?subject=Inquiry about ${pet.name}`}
+              className="contact-button"
+            >
               Contact Seller
             </Button>
-            
-            <Box>
+            <Box className="icon-buttons">
               <IconButton color="primary" onClick={handleShare}>
                 <ContentCopy />
               </IconButton>

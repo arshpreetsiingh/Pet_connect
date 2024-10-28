@@ -7,6 +7,7 @@ const PetSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   description: { type: String, required: true },
   image: { type: String },
+  email: { type: String, required: true },
   seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 });
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { jwtDecode } from 'jwt-decode'; // Use named import, as 'jwt-decode' exports 'jwtDecode' as a named export.
+import { jwtDecode } from 'jwt-decode'; 
 
 const NavBar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -1,0 +1,53 @@
+/* SellerDashboard.css */
+
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  
+  .dashboard-box {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    max-width: 600px;
+  }
+  
+  .dashboard-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  .dashboard-alert {
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-field {
+    height: 10vh;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    background-color: #1976d2;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: none;
+  }
+  
+  .submit-button:hover {
+    background-color: #1565c0;
+  }
+  
+  .snackbar-success {
+    background-color: #4caf50;
+    color: #ffffff;
+  }
+  
