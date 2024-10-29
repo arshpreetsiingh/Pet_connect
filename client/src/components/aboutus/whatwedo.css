@@ -1,0 +1,70 @@
+.what-we-do-container {
+  background-color: hsl(0, 0%, 100%);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.what-we-do-heading {
+  font-size: 40px;
+  font-weight: bold;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.what-we-do-text {
+  font-size: 18px;
+  margin-bottom: 50px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.cards-container {
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeIn 1s ease-in-out;
+  margin-left: 5vw;
+  padding-top: 3vh;
+  padding-inline: auto;
+}
+
+.cards {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(244, 50, 254, 0.222);
+  width: 345px; /* Fixed width for cards */
+  height: 345px; /* Fixed height for cards */
+}
+
+.cards:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(181, 43, 255, 0.651);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

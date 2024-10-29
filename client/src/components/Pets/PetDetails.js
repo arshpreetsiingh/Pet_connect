@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Container, Typography, Card, CardContent, CardMedia, Button, Box, CircularProgress, Grid, IconButton } from '@mui/material';
 import { Email, Share, ContentCopy } from '@mui/icons-material';
 import axios from '../../api/axios';
-import placeholder from '../../img/placeholder.png'; // Ensure this file exists
+import placeholder from '../../imgs/placeholder.png'; // Ensure this file exists
 import './PetDetails.css';
 
 const PetDetails = () => {

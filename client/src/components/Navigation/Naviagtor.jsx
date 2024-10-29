@@ -11,7 +11,7 @@ import PetList from '../../screens/Pets/PetList';
 import SellerDashboard from '../../screens/Seller/SellerDashboard';
 import PetDetails from '../Pets/PetDetails';
 import Footer from '../Footer/Footer';
-
+import AboutUs from '../../screens/Aboutus/Aboutus';
 const theme = createTheme({
   palette: {
     primary: {
@@ -38,6 +38,7 @@ function Navigator() {
               <Route path="/pets" element={<PetList />} />
               <Route path="/pets/:id" element={<PetDetails />} />
               <Route path="/seller-dashboard" element={<SellerDashboard />} />
+              <Route path="/about" element={< AboutUs />} />
             </Routes>
           </Container>
           <Footer />

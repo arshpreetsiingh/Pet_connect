@@ -1,0 +1,98 @@
+/* Container for the entire team section */
+.our-team-container {
+  background-color: #ffffff;
+  padding: 40px;
+}
+
+/* Styling for the team section heading */
+.our-team-heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Styling for individual team member cards */
+.team-card {
+  position: relative;
+  transition: transform 0.2s;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Animated border effect for team cards */
+.team-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 5px solid transparent;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 1;
+  animation: borderAnimation 5s linear infinite;
+}
+
+/* Keyframes for the border animation */
+@keyframes borderAnimation {
+  0% {
+    border-color: red;
+  }
+  14% {
+    border-color: orange;
+  }
+  28% {
+    border-color: yellow;
+  }
+  42% {
+    border-color: green;
+  }
+  57% {
+    border-color: blue;
+  }
+  71% {
+    border-color: indigo;
+  }
+  85% {
+    border-color: violet;
+  }
+  100% {
+    border-color: red;
+  }
+}
+
+/* Hover effect for team cards */
+.team-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for the team card image */
+.team-card-image {
+  height: 350px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transition: filter 0.3s;
+}
+
+/* Styling for the team card body */
+.team-card-body {
+  background-color: #f9f9f9;
+  padding: 15px;
+  z-index: 2; /* Ensure content is above the border */
+  position: relative;
+}
+
+/* Styling for text elements within the team card body */
+.team-card-body h5,
+.team-card-body h6,
+.team-card-body p {
+  margin-bottom: 10px;
+}

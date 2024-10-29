@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Typography, Grid, Card, CardContent, CardMedia, Button, TextField } from '@mui/material';
 import { Link } from 'react-router-dom';
 import axios from '../../api/axios';
-import placeholder from '../../img/placeholder.png';
+import placeholder from '../../imgs/placeholder.png';
 import './PetList.css';
 
 const PetList = () => {

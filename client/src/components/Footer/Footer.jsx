@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.css';
 import { Link } from 'react-router-dom';
-import placeholder from '../../img/placeholder.png';
+import placeholder from '../../imgs/placeholder.png';
 const Footer = () => {
     return (
         <footer className="footer-section">

@@ -1,0 +1,41 @@
+.about-container {
+  /* padding: 20px; */
+  max-width: 100%; 
+}
+
+.about-section {
+  padding: 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.footer{
+  width: 100%;
+}
+
+.about-section:hover {
+  background-color: #ffffff;
+}
+
+.about-section h2 {
+  margin-bottom: 10px;
+  color: #0d0d0d;
+}
+
+.about-section p {
+  margin-bottom: 0;
+  color: #555;
+}
+
+
+@media (min-width: 768px) {
+  .about-section {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-section {
+    margin-bottom: 0;
+  }
+}

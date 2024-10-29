@@ -44,6 +44,7 @@ const NavBar = () => {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/pets">Pets</Nav.Link>
+            {/* <Nav.Link as={Link} to="/about">About</Nav.Link> */}
             {isLoggedIn && userRole === 'seller' && (
               <Nav.Link as={Link} to="/seller-dashboard">Seller Dashboard</Nav.Link>
             )}
